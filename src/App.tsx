@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom'
 
 const routeArr: string[] = [
   'v1-suspense-swr',
-  'v2-initial-loading-with-skeletons'
+  'v2-initial-loading-with-skeletons',
+  'v3-Intermediate-feedback'
 ]
 
 function App() {

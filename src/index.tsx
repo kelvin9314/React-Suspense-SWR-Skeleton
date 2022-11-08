@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App';
 import V1Suspense from './pages/v1-suspense-swr';
 import V2 from './pages/v2-initial-loading-with-skeletons';
+import V3 from './pages/v3-Intermediate-feedback';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -38,6 +39,7 @@ root.render(
           <Route path="/" element={<App />}></Route>
           <Route path="/v1-suspense-swr" element={<V1Suspense />}></Route>
           <Route path="/v2-initial-loading-with-skeletons" element={<V2 />}></Route>
+          <Route path="/v3-Intermediate-feedback" element={<V3 />}></Route>
         </Routes>
       </BrowserRouter>
 
