@@ -6,9 +6,18 @@ import './index.css'
 import { API_ROUTE, PROFILE_URL } from '../../constant'
 
 import SpinnerLoader from '../spinner-loader'
+import AlertIcon from '../alert-icon'
 
-const FallbackIntermediate = () => {
-  const { data, isValidating, mutate } = useSWR(API_ROUTE)
+const FallbackInitial = () => {
+  const { data, error, isValidating, mutate } = useSWR(API_ROUTE + '123123')
+
+  React.useEffect(() => {
+    console.log(data)
+  }, [data ])
+
+  React.useEffect(() => {
+    console.log(error)
+  }, [error ])
 
 
   return (
@@ -35,6 +44,12 @@ const FallbackIntermediate = () => {
         </div>
       )}
 
+      {error && (
+        <div className="spinner">
+          <AlertIcon />
+        </div>
+      )}
+
       <button onClick={() => mutate()} disabled={isValidating}>
         refetch data 
       </button>
@@ -42,4 +57,4 @@ const FallbackIntermediate = () => {
   )
 }
 
-export default FallbackIntermediate 
+export default FallbackInitial 

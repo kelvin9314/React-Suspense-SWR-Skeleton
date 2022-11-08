@@ -6,14 +6,15 @@ import {Link} from 'react-router-dom'
 const routeArr: string[] = [
   'v1-suspense-swr',
   'v2-initial-loading-with-skeletons',
-  'v3-Intermediate-feedback'
+  'v3-Intermediate-feedback',
+  'v4-initial-fallback'
 ]
 
 function App() {
   return (
     <div className="App">
       <h1>Hello world </h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <h2>different examples</h2>
 
       <ul>
         {routeArr?.map((item ) => {

@@ -8,17 +8,26 @@ import App from './App';
 import V1Suspense from './pages/v1-suspense-swr';
 import V2 from './pages/v2-initial-loading-with-skeletons';
 import V3 from './pages/v3-Intermediate-feedback';
+import V4 from './pages/v4-initial-fallback';
 
 import reportWebVitals from './reportWebVitals';
+import { rejects } from 'assert';
 
 const fetcher = (url: string) =>
   fetch(url).then(
     res =>
-      new Promise(resolve =>
+      new Promise((resolve, reject) =>
         setTimeout(async () => {
-          const jsonResponse = await res.json()
+          console.log(res)
 
-          resolve(jsonResponse)
+          if(res.ok){
+            const jsonResponse = await res.json()
+            resolve(jsonResponse)
+          }else {
+            const jsonResponse = await res.json()
+            reject(jsonResponse)
+          }
+
         }, 2000),
       ),
   )
@@ -40,6 +49,7 @@ root.render(
           <Route path="/v1-suspense-swr" element={<V1Suspense />}></Route>
           <Route path="/v2-initial-loading-with-skeletons" element={<V2 />}></Route>
           <Route path="/v3-Intermediate-feedback" element={<V3 />}></Route>
+          <Route path="/v4-initial-fallback" element={<V4 />}></Route>
         </Routes>
       </BrowserRouter>
 
