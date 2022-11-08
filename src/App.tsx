@@ -3,6 +3,11 @@ import './App.css';
 
 import {Link} from 'react-router-dom'
 
+const routeArr: string[] = [
+  'v1-suspense-swr',
+  'v2-initial-loading-with-skeletons'
+]
+
 function App() {
   return (
     <div className="App">
@@ -10,9 +15,13 @@ function App() {
       <h2>Start editing to see some magic happen!</h2>
 
       <ul>
-        <li>
-          <Link to="/v1-suspense-swr">v1-suspense-swr</Link>
-        </li>
+        {routeArr?.map((item ) => {
+          return (
+            <li key={item}>
+              <Link to={item}>{item}</Link>
+            </li>
+          )
+        })}
       </ul>
     </div>
   );

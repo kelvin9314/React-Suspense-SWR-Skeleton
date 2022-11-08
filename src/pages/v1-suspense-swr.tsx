@@ -1,13 +1,16 @@
 
+import React, { Suspense } from 'react'
+import ProfileData from '../components/profile-data'
 
-import ProfileContainer from '../components/profile-container'
 
 const V1Suspense = () => { 
   
   return (
     <div className="App">
-      <h1>Profile</h1>
-      <ProfileContainer />
+      <h1>Profile - v1-suspense-swr</h1>
+      <Suspense fallback="loading...">
+        <ProfileData />
+      </Suspense>
     </div>
   )
 }
