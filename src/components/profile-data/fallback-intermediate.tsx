@@ -5,7 +5,7 @@ import useSWR from 'swr'
 import './index.css'
 import { API_ROUTE, PROFILE_URL } from '../../constant'
 
-import SpinnerLoader from '../spinnder-loader'
+import SpinnerLoader from '../skeleton-loading'
 
 const FallbackIntermediate = () => {
   const { data, isValidating, mutate } = useSWR(API_ROUTE)
